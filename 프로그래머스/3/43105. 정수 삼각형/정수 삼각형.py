@@ -15,12 +15,12 @@ def solution(triangle):
     for _ in range(n):
         dp.append([0] * (n + 1))
     
-    # 최대 합 구하기
+    # 더 큰 값으로 더하기 (그래프를 좌측으로 붙여 위, 왼쪽 위)
     for i in range(1, n + 1):
         for j in range(1, i + 1):
             dp[i][j] = max(dp[i-1][j], dp[i-1][j-1]) + triangle[i-1][j-1]
     
-    
+    # 최종 출력 층 최대 값
     answer = max(dp[n])
             
     
