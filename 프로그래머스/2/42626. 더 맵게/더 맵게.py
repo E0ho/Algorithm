@@ -7,26 +7,48 @@ import heapq
 def solution(scoville, K):
     answer = 0
     
-    # 최소 힙으로 변환
     heapq.heapify(scoville)
-    
-    # 반복
+    count = 0
     while True:
         
-        # 모든 음식의 스코빌 지수 K 이상 -> 종료
         if scoville[0] >= K:
-            return answer
+            break
         
-        # 모든 음식의 스코빌 지수 k 이상 불가
         if len(scoville) == 1:
             return -1
         
-        # 음식 섞기
-        answer += 1
-        first = heapq.heappop(scoville)
-        second = heapq.heappop(scoville)
+        count += 1
+        mini = heapq.heappop(scoville)
+        mini2 = heapq.heappop(scoville)
 
-        cal = first + (second * 2)
-        heapq.heappush(scoville, cal)
+        temp = mini + (2 * mini2)
 
+        heapq.heappush(scoville, temp)
+        
+    answer = count
     return answer
+
+
+
+
+#     # 최소 힙으로 변환
+#     heapq.heapify(scoville)
+    
+#     # 반복
+#     while True:
+        
+#         # 모든 음식의 스코빌 지수 K 이상 -> 종료
+#         if scoville[0] >= K:
+#             return answer
+        
+#         # 모든 음식의 스코빌 지수 k 이상 불가
+#         if len(scoville) == 1:
+#             return -1
+        
+#         # 음식 섞기
+#         answer += 1
+#         first = heapq.heappop(scoville)
+#         second = heapq.heappop(scoville)
+
+#         cal = first + (second * 2)
+#         heapq.heappush(scoville, cal)
