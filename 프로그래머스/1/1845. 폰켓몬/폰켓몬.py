@@ -5,13 +5,29 @@
 def solution(nums):
     answer = 0
     
-    # 포켓몬 수
-    leng = len(nums)
+    # n/2 마리 가져감
+    n = len(nums) // 2
     
-    # 포켓몬 종류 수
-    nums = set(nums)
+    # 최대 종류
+    s = set(nums)
     
-    # 가져갈 수 있는 포켓몬 종류
-    answer = min(len(nums), leng // 2)
-        
+    answer = min(len(s), n)
+    
     return answer
+
+
+
+
+
+
+
+
+
+# 포켓몬 수
+#     leng = len(nums)
+    
+#     # 포켓몬 종류 수
+#     nums = set(nums)
+    
+#     # 가져갈 수 있는 포켓몬 종류
+#     answer = min(len(nums), leng // 2)
