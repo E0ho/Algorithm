@@ -1,17 +1,22 @@
-# n 마리 포켓몬 중 n/2 가져가도 좋다
-# 포켓몬 종류 별 고유 번호 (같은 종류 같은 번호)
-# 포켓몬 종류 최대로 가져가기
+# N 마리 포켓못 중 N/2 마리 선택
+# 종류별 번호 (같은 종류 = 같은 번호)
 
 def solution(nums):
     answer = 0
     
-    # n/2 마리 가져감
-    n = len(nums) // 2
+    # 포켓몬 수
+    leng = len(nums)
+    n = leng / 2
     
-    # 최대 종류
-    s = set(nums)
+    dict = {}
+    for num in nums:
+        temp = dict.get(num, 0)
+        dict[num] = temp + 1
     
-    answer = min(len(s), n)
+    if len(dict) <= n:
+        return len(dict)
+    else:
+        return n
     
     return answer
 
