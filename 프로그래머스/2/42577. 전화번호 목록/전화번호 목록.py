@@ -21,5 +21,20 @@ def solution(phone_book):
             if s in dic.keys() and s != number:
                 answer = False
                 return answer
-            
+        
     return answer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
