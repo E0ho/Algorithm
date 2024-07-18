@@ -3,25 +3,20 @@
 def solution(phone_book):
     answer = True
     
-    n = len(phone_book)
-    
-    # 문자 개수로 정렬
-    phone_book.sort(key = len)
-    
-    # 사전 만들기
-    dic = {}
+    # 해시 사전 (시간 복잡도 감소)
+    hash_dict = {}
     for number in phone_book:
-        dic[number] = number
+        hash_dict[number] = True
     
-    # 접두어 확인
+    # 모든 번호 탐색
     for number in phone_book:
-        s = ""
+        s = ''
         for num in number:
             s += num
-            if s in dic.keys() and s != number:
-                answer = False
-                return answer
-        
+            if s in hash_dict and s != number:
+                return False
+            
+            
     return answer
 
 
