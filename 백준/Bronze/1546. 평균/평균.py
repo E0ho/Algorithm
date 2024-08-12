@@ -1,17 +1,11 @@
-# 최고점 구하기
-# 변경된 값 저장하기
-
 # 입력
 n = int(input())
-li = list(map(int, input().split()))
-new_li = []
+scores = list(map(int, input().split()))
 
-# 최고점 구하기
-max_score = max(li)
+# 점수 조작
+maxi = max(scores)
+for i in range(len(scores)):
+    scores[i] = scores[i] / maxi * 100
 
-# 변경된 값 저장
-for score in li:
-    new_li.append(score / max_score * 100)
-
-# 새로운 평균 출력
-print(sum(new_li) / len(new_li))
+# 출력 (점수 평균)
+print(sum(scores) / len(scores))
