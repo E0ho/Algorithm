@@ -1,38 +1,20 @@
-# N 마리 포켓못 중 N/2 마리 선택
-# 종류별 번호 (같은 종류 = 같은 번호)
+# 총 N 마리 -> 절반을 가져가도 된다.
+# 종류 마다 번호가 존재
+# 포켓몬 종류 수 (최대)
+
+# nums : [포켓몬 종류] (10,000)
 
 def solution(nums):
-    answer = 0
     
-    # 포켓몬 수
-    leng = len(nums)
-    n = leng / 2
+    kind_set = set()
+    N = len(nums)
     
-    dict = {}
-    for num in nums:
-        temp = dict.get(num, 0)
-        dict[num] = temp + 1
-    
-    if len(dict) <= n:
-        return len(dict)
+    # 종류가 N/2 이상인 경우
+    if len(set(nums)) > (N // 2) :
+        return N // 2
+
     else:
-        return n
+        return len(set(nums))
     
-    return answer
-
-
-
-
-
-
-
-
-
-# 포켓몬 수
-#     leng = len(nums)
-    
-#     # 포켓몬 종류 수
-#     nums = set(nums)
-    
-#     # 가져갈 수 있는 포켓몬 종류
-#     answer = min(len(nums), leng // 2)
+    # answer = 0
+    # return answer
