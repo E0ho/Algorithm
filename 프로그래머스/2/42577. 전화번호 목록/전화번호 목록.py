@@ -1,35 +1,15 @@
-# 번호가 다른 번호의 접두어인 경우
+# 한 번호가 다른 번호의 접두어인 경우가 있는지 확인
 
+# phone_book : [전화번호]
+
+# 접두어가 있는 경우 False
 def solution(phone_book):
+    
+    phone_book.sort()
+    
+    for i in range(len(phone_book) - 1):
+        if phone_book[i+1].startswith(phone_book[i]):
+            return False
+
     answer = True
-    
-    # 해시 사전 (시간 복잡도 감소)
-    hash_dict = {}
-    for number in phone_book:
-        hash_dict[number] = True
-    
-    # 모든 번호 탐색
-    for number in phone_book:
-        s = ''
-        for num in number:
-            s += num
-            if s in hash_dict and s != number:
-                return False
-            
-            
     return answer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
